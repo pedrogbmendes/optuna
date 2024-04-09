@@ -2,7 +2,6 @@ from optuna.samplers import nsgaii
 from optuna.samplers._base import BaseSampler
 from optuna.samplers._brute_force import BruteForceSampler
 from optuna.samplers._cmaes import CmaEsSampler
-from optuna.samplers._gp.sampler import GPSampler
 from optuna.samplers._grid import GridSampler
 from optuna.samplers._nsgaiii._sampler import NSGAIIISampler
 from optuna.samplers._partial_fixed import PartialFixedSampler
@@ -13,6 +12,9 @@ from optuna.samplers._search_space import IntersectionSearchSpace
 from optuna.samplers._tpe.multi_objective_sampler import MOTPESampler
 from optuna.samplers._tpe.sampler import TPESampler
 from optuna.samplers.nsgaii._sampler import NSGAIISampler
+from optuna.samplers._hyperband._hyperband import HyperBand
+from optuna.samplers._bohb._bohb import BOHB
+from optuna.samplers._hyperjump._hyperjump import HyperJump
 
 
 __all__ = [
@@ -28,7 +30,9 @@ __all__ = [
     "QMCSampler",
     "RandomSampler",
     "TPESampler",
-    "GPSampler",
     "intersection_search_space",
     "nsgaii",
+    "HyperBand",
+    "BOHB",
+    "HyperJump",
 ]
