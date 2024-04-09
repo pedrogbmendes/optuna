@@ -12,6 +12,17 @@ Directories and files added:
   - optuna/setup.py
 
 
+## Installation
+
+Download this repo and run:
+```bash
+# PyPI
+$ pip2 install .
+```
+
+There might be some dependencies that you will need to install.
+
+
 
 [![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org)
 [![pypi](https://img.shields.io/pypi/v/optuna.svg)](https://pypi.python.org/pypi/optuna)
