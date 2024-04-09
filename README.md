@@ -2,6 +2,17 @@
 
 # Optuna: A hyperparameter optimization framework
 
+
+## Introduces HyperJump, HyperBand, and BOHB in the Optuna framework
+Directories and files added:
+  - optuna/optuna/samplers/_bohb
+  - optuna/optuna/samplers/_hyperband
+  - optuna/optuna/samplers/_hyperjumop
+  - optuna/optuna/samplers/__init__.py
+  - optuna/setup.py
+
+
+
 [![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org)
 [![pypi](https://img.shields.io/pypi/v/optuna.svg)](https://pypi.python.org/pypi/optuna)
 [![conda](https://img.shields.io/conda/vn/conda-forge/optuna.svg)](https://anaconda.org/conda-forge/optuna)
