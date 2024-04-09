@@ -17,7 +17,7 @@ Directories and files added:
 Download this repo and run:
 ```bash
 # PyPI
-$ pip2 install .
+$ pip3 install .
 ```
 
 There might be some dependencies that you will need to install.
