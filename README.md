@@ -10,6 +10,7 @@ Directories and files added:
   - `optuna/optuna/samplers/_hyperjumop`
   - `optuna/optuna/samplers/__init__.py`
   - `optuna/setup.py`
+  - `optuna/requirements.txt`
   - `optuna/hpt_summarize.py` task to be optimized
 
 
