@@ -620,7 +620,7 @@ if __name__ == '__main__':
         #sampler = optuna.samplers.HyperBand(eta= 3, min_budget=1.0,max_budget=81.0,seed=42)
     elif args.sampler=='hj':
         print("Using HyperJump!")
-        pool = multiprocessing.Pool(processes=multiprocessing.cpu_count()-1)
+        pool = None #multiprocessing.Pool(processes=multiprocessing.cpu_count()-1)
         sampler = optuna.samplers.HyperJump(eta=args.eta, min_budget=args.min_budget,max_budget=args.max_budget, budgetName=args.budget, threshold=0.1, seed=42, pool=pool)
         #sampler = optuna.samplers.HyperBand(eta= 3, min_budget=1.0,max_budget=81.0,seed=42)
     else:
