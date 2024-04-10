@@ -1,0 +1,9 @@
+numpy
+scipy
+torch
+GPy
+transformers
+mpmath
+gpytorch
+scikit-learn
+pandas
