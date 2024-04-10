@@ -7,3 +7,6 @@ mpmath
 gpytorch
 scikit-learn
 pandas
+matplotlib
+datasets
+evaluate
