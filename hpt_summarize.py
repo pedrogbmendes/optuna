@@ -36,13 +36,15 @@ DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 MAX_LENGHT = 1024 #256 #512
 GPU_BATCH_SIZE = 2
 
-DEBUG = False
+DEBUG = True #False
+test_mode = True
 
 #sumarization tasks
 # https://huggingface.co/datasets/EdinburghNLP/xsum
 # https://huggingface.co/datasets/cnn_dailymail
 # https://huggingface.co/docs/transformers/model_doc/bart
 # https://huggingface.co/docs/transformers/model_doc/t5
+
 
 
 class dataset():
@@ -432,6 +434,20 @@ def deploy_model_hp_datasetSize(data_train, data_eval, model_name, dataset_name,
 
 
 def objective(trial):
+
+    if test_mode:
+        batch_size = trial.suggest_int("gradient_accumulation_steps", 4, 64) #diminuir para 4
+        learning_rate = trial.suggest_float("lr", 1e-7, 1e-5)
+        weight_decay = trial.suggest_float("weight_decay", 1e-7, 1e-5)
+        optimizer = trial.suggest_categorical("optimizer", ['AdamW', 'Adafactor']) 
+        scheduler_lr_warmup = trial.suggest_int("num_warmup_steps", 0, 500) # aumento para 500
+        scheduler_lr = trial.suggest_categorical("scheduler_lr", ["linear", "poly", "cosine"]) 
+        budget = trial.suggest_float(trial.study.sampler.budgetName, trial.study.sampler.min_budget, trial.study.sampler.max_budget)
+
+        rouge2 =  np.random.rand()
+        print(rouge2)
+        return rouge2
+
     #batch_size = trial.suggest_int("batch_size", GPU_BATCH_SIZE, 64)
     batch_size = trial.suggest_int("gradient_accumulation_steps", 4, 64) #diminuir para 4
 
@@ -470,7 +486,9 @@ def objective(trial):
         hp_name = ""
         budgetName = args.budget
 
+
     
+
     result_queue = multiprocessing.Queue()
     if budgetName == 'epochs':
         my_process = multiprocessing.Process(target=deploy_model_hp,args=(data.data_train, data.data_eval, \
@@ -495,7 +513,6 @@ def objective(trial):
     my_process.start()
     my_process.join()
     rouge2 = result_queue.get()
-    #rouge2 =  np.random.rand()
     print(rouge2)
     return rouge2
 
@@ -567,8 +584,9 @@ if __name__ == '__main__':
 
     model_name = args.model
     dataset_name = args.dataset
-
-    data = dataset(model_name, dataset_name)
+    
+    if not test_mode:
+        data = dataset(model_name, dataset_name)
 
     model_name_write = model_name.replace('/', '-')
 
