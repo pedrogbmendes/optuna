@@ -22,8 +22,8 @@ $ pip3 install .
 ```
 
 There might be some dependencies that you will need to install.
-Install the dependencies for req in $(cat requirements.txt); do pip3 install --user $req; done
-
+* Install the dependencies 
+```for req in $(cat requirements.txt); do pip3 install --user $req; done```
 
 [![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org)
 [![pypi](https://img.shields.io/pypi/v/optuna.svg)](https://pypi.python.org/pypi/optuna)
