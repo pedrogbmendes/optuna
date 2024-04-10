@@ -7,7 +7,7 @@
 Directories and files added:
   - `optuna/optuna/samplers/_bohb`
   - `optuna/optuna/samplers/_hyperband`
-  - `optuna/optuna/samplers/_hyperjumop`
+  - `optuna/optuna/samplers/_hyperjump`
   - `optuna/optuna/samplers/__init__.py`
   - `optuna/setup.py`
   - `optuna/requirements.txt`
