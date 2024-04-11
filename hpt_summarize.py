@@ -36,8 +36,8 @@ DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 MAX_LENGHT = 1024 #256 #512
 GPU_BATCH_SIZE = 2
 
-DEBUG = True #False
-test_mode = True
+DEBUG = False
+test_mode = False #True
 
 #sumarization tasks
 # https://huggingface.co/datasets/EdinburghNLP/xsum
@@ -104,8 +104,7 @@ class dataset():
         return inputs
     
 
-class Seq2SeqTrainer_():
-#class Seq2SeqTrainer_(Seq2SeqTrainer):
+class Seq2SeqTrainer_(Seq2SeqTrainer):
     def compute_loss(self, model, inputs, return_outputs=False):
         labels = inputs.pop("labels")
 
